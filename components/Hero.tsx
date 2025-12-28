@@ -124,7 +124,7 @@ export default function Hero() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.5 }}
                   >
-                    Hey, I'm
+                    Hey, I&apos;m
                   </motion.span>
                   <motion.span 
                     className="block bg-gradient-to-r from-primary via-orange-400 to-green-400 bg-clip-text text-transparent"
@@ -149,27 +149,29 @@ export default function Hero() {
                 variants={itemVariants}
                 className="flex flex-wrap gap-4"
               >
-                <Button 
-                  size="lg" 
-                  className="group bg-gradient-to-r from-primary to-orange-500 hover:from-primary/90 hover:to-orange-500/90 text-white shadow-lg hover:shadow-xl transition-all"
-                  asChild
-                >
-                  <a href="#projects" className="flex items-center gap-2">
-                    <span>View Projects</span>
-                    <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
-                  </a>
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="group border-2 hover:border-primary/50"
-                  asChild
-                >
-                  <a href="#contact" className="flex items-center gap-2">
-                    <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                    <span>Get in Touch</span>
-                  </a>
-                </Button>
+                <a href="#projects">
+                  <Button 
+                    size="lg" 
+                    className="group bg-gradient-to-r from-primary to-orange-500 hover:from-primary/90 hover:to-orange-500/90 text-white shadow-lg hover:shadow-xl transition-all"
+                  >
+                    <span className="flex items-center gap-2">
+                      <span>View Projects</span>
+                      <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
+                    </span>
+                  </Button>
+                </a>
+                <a href="#contact">
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    className="group border-2 hover:border-primary/50"
+                  >
+                    <span className="flex items-center gap-2">
+                      <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                      <span>Get in Touch</span>
+                    </span>
+                  </Button>
+                </a>
               </motion.div>
 
               <motion.div

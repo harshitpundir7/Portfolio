@@ -154,9 +154,9 @@ export default function Contact() {
             Get In <span className="bg-gradient-to-r from-primary to-orange-400 bg-clip-text text-transparent">Touch</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
-            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+            I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
             <br />
-            Let's build something amazing together!
+            Let&apos;s build something amazing together!
           </p>
         </motion.div>
 
@@ -298,14 +298,16 @@ export default function Contact() {
                 Ready to Start a Project?
               </h3>
               <p className="text-muted-foreground mb-6">
-                Let's discuss how we can work together to bring your ideas to life.
+                Let&apos;s discuss how we can work together to bring your ideas to life.
               </p>
-              <Button size="lg" className="group" asChild>
-                <a href="mailto:neerajpundir2005@gmail.com" className="flex items-center gap-2">
-                  <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  Send Me an Email
-                </a>
-              </Button>
+              <a href="mailto:neerajpundir2005@gmail.com">
+                <Button size="lg" className="group">
+                  <span className="flex items-center gap-2">
+                    <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    Send Me an Email
+                  </span>
+                </Button>
+              </a>
             </CardContent>
           </Card>
         </motion.div>

@@ -145,21 +145,21 @@ export default function Achievements() {
                     </CardDescription>
                   </div>
                 </div>
-                <Button
-                  asChild
-                  className="group/btn"
-                  size="lg"
+                <a
+                  href="https://harshitpundir.hashnode.dev/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <a
-                    href="https://harshitpundir.hashnode.dev/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2"
+                  <Button
+                    className="group/btn"
+                    size="lg"
                   >
-                    Visit Profile
-                    <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
-                  </a>
-                </Button>
+                    <span className="flex items-center gap-2">
+                      Visit Profile
+                      <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+                    </span>
+                  </Button>
+                </a>
               </div>
             </CardHeader>
           </Card>
@@ -204,21 +204,22 @@ export default function Achievements() {
                   </CardHeader>
                   
                   <CardContent className="relative">
-                    <Button
-                      asChild
-                      variant="outline"
-                      className="w-full group/btn"
+                    <a
+                      href={post.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
                     >
-                      <a
-                        href={post.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2"
+                      <Button
+                        variant="outline"
+                        className="w-full group/btn"
                       >
-                        Read Article
-                        <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                      </a>
-                    </Button>
+                        <span className="flex items-center justify-center gap-2">
+                          Read Article
+                          <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                        </span>
+                      </Button>
+                    </a>
                   </CardContent>
 
                   {/* Floating particles effect */}
@@ -253,22 +254,22 @@ export default function Achievements() {
           <p className="text-muted-foreground mb-4">
             Want to read more? Check out my complete collection of articles
           </p>
-          <Button
-            asChild
-            variant="outline"
-            size="lg"
-            className="group/btn"
+          <a
+            href="https://harshitpundir.hashnode.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <a
-              href="https://harshitpundir.hashnode.dev/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2"
+            <Button
+              variant="outline"
+              size="lg"
+              className="group/btn"
             >
-              Explore All Articles
-              <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
-            </a>
-          </Button>
+              <span className="flex items-center gap-2">
+                Explore All Articles
+                <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+              </span>
+            </Button>
+          </a>
         </motion.div>
       </div>
     </section>
