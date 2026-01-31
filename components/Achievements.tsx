@@ -1,277 +1,72 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
-import { Button } from "./ui/button";
-import { PenTool, BookOpen, ExternalLink, Sparkles, ArrowRight } from "lucide-react";
+import { Trophy, Award, Star } from "lucide-react";
+import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
 
-const blogPosts = [
-  {
-    title: "Serverless Architecture for Backend",
-    description: "Exploring modern serverless patterns, best practices, and how to build scalable backend systems without managing infrastructure.",
-    url: "https://harshitpundir.hashnode.dev/serverless-architecture-for-backend",
-    gradient: "from-yellow-500 to-orange-500",
-    icon: Sparkles,
-  },
-  {
-    title: "PostgreSQL Deep Dive",
-    description: "Understanding PostgreSQL internals, optimization techniques, and advanced database concepts for building robust applications.",
-    url: "https://harshitpundir.hashnode.dev/postgres",
-    gradient: "from-orange-500 to-green-500",
-    icon: BookOpen,
-  },
+const achievements = [
+    {
+        title: "TechSprint Hackathon Winner",
+        award: "2nd Runner-Up",
+        description: "Secured position among 2000+ entries. Awarded ₹1,00,000 for building 'Flow AI', a marketing automation tool.",
+        icon: Trophy,
+        color: "text-yellow-500",
+        bg: "bg-yellow-500/10",
+    },
+    {
+        title: "HackIndia 2025",
+        award: "Finalist / Participant",
+        description: "Built an AI (RAG) app for university-wide knowledge base search using LangChain.",
+        icon: Award,
+        color: "text-blue-500",
+        bg: "bg-blue-500/10",
+    },
+    {
+        title: "Adobe Hackathon",
+        award: "Top Team",
+        description: "Selected from 250,000 students. Developed an AI-based system for PDF outline extraction and analysis.",
+        icon: Star,
+        color: "text-purple-500",
+        bg: "bg-purple-500/10",
+    },
 ];
 
 export default function Achievements() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 40, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-
-  const floatingVariants = {
-    animate: {
-      y: [0, -10, 0],
-      transition: {
-        duration: 3,
-        repeat: Infinity,
-        ease: "easeInOut",
-      },
-    },
-  };
-
-  return (
-    <section id="achievements" className="py-24 relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <motion.div
-          className="absolute top-20 right-10 w-72 h-72 bg-yellow-500/10 rounded-full blur-3xl"
-          animate={{
-            x: [0, 50, 0],
-            y: [0, 30, 0],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-20 left-10 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl"
-          animate={{
-            x: [0, -40, 0],
-            y: [0, -50, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      </div>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <motion.div
-            variants={floatingVariants}
-            animate="animate"
-            className="inline-block mb-4"
-          >
-            <PenTool className="w-12 h-12 text-primary mx-auto" />
-          </motion.div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-primary to-orange-400 bg-clip-text text-transparent">
-              Tech Blog
-            </span>
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
-            Sharing knowledge, insights, and experiences through technical writing. 
-            Exploring modern technologies, best practices, and innovative solutions.
-          </p>
-        </motion.div>
-
-        {/* Hashnode Profile Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-12"
-        >
-          <Card className="border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 group overflow-hidden relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/5 via-orange-500/5 to-green-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="h-1 bg-gradient-to-r from-yellow-500 via-orange-500 to-green-500" />
-            <CardHeader className="relative">
-              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                <div className="flex items-center gap-4">
-                  <motion.div
-                    className="p-3 rounded-xl bg-gradient-to-br from-yellow-500 to-orange-500 shadow-lg"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    <PenTool className="w-6 h-6 text-white" />
-                  </motion.div>
-                  <div>
-                    <CardTitle className="text-2xl mb-1 group-hover:text-primary transition-colors">
-                      Hashnode Profile
-                    </CardTitle>
-                    <CardDescription className="text-base">
-                      Read my latest articles on backend development, databases, and modern tech stacks
-                    </CardDescription>
-                  </div>
+    return (
+        <section id="achievements" className="py-24 bg-zinc-50/50 dark:bg-zinc-900/20">
+            <div className="container mx-auto px-4">
+                <div className="mb-12 text-center md:text-left">
+                    <h2 className="text-3xl font-bold tracking-tight mb-2">Honors & Achievements</h2>
+                    <p className="text-muted-foreground">Recognition for technical excellence and innovation.</p>
                 </div>
-                <a
-                  href="https://harshitpundir.hashnode.dev/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button
-                    className="group/btn"
-                    size="lg"
-                  >
-                    <span className="flex items-center gap-2">
-                      Visit Profile
-                      <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
-                    </span>
-                  </Button>
-                </a>
-              </div>
-            </CardHeader>
-          </Card>
-        </motion.div>
 
-        {/* Featured Blog Posts */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
-        >
-          {blogPosts.map((post, index) => {
-            const Icon = post.icon;
-            return (
-              <motion.div key={index} variants={itemVariants}>
-                <Card className="h-full border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 group overflow-hidden relative">
-                  {/* Animated gradient border */}
-                  <div className={`absolute inset-0 bg-gradient-to-r ${post.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl`} />
-                  
-                  <div className={`h-1 bg-gradient-to-r ${post.gradient}`} />
-                  
-                  <CardHeader className="relative">
-                    <div className="flex items-start gap-4 mb-3">
-                      <motion.div
-                        className={`p-3 rounded-xl bg-gradient-to-br ${post.gradient} shadow-lg flex-shrink-0`}
-                        whileHover={{ scale: 1.15, rotate: [0, -10, 10, -10, 0] }}
-                        transition={{ duration: 0.5 }}
-                      >
-                        <Icon className="w-6 h-6 text-white" />
-                      </motion.div>
-                      <div className="flex-1">
-                        <CardTitle className="text-xl mb-2 group-hover:text-primary transition-colors line-clamp-2">
-                          {post.title}
-                        </CardTitle>
-                        <CardDescription className="text-sm leading-relaxed line-clamp-3">
-                          {post.description}
-                        </CardDescription>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  
-                  <CardContent className="relative">
-                    <a
-                      href={post.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block"
-                    >
-                      <Button
-                        variant="outline"
-                        className="w-full group/btn"
-                      >
-                        <span className="flex items-center justify-center gap-2">
-                          Read Article
-                          <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                        </span>
-                      </Button>
-                    </a>
-                  </CardContent>
-
-                  {/* Floating particles effect */}
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <motion.div
-                      className="w-2 h-2 rounded-full bg-gradient-to-r from-yellow-400 to-orange-400"
-                      animate={{
-                        y: [0, -10, 0],
-                        opacity: [0.5, 1, 0.5],
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        delay: index * 0.3,
-                      }}
-                    />
-                  </div>
-                </Card>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-12 text-center"
-        >
-          <p className="text-muted-foreground mb-4">
-            Want to read more? Check out my complete collection of articles
-          </p>
-          <a
-            href="https://harshitpundir.hashnode.dev/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button
-              variant="outline"
-              size="lg"
-              className="group/btn"
-            >
-              <span className="flex items-center gap-2">
-                Explore All Articles
-                <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
-              </span>
-            </Button>
-          </a>
-        </motion.div>
-      </div>
-    </section>
-  );
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {achievements.map((item, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1 }}
+                        >
+                            <Card className="h-full border-zinc-200 dark:border-zinc-800 bg-background hover:shadow-lg transition-all duration-300">
+                                <CardHeader className="pb-2">
+                                    <div className={`w-12 h-12 rounded-xl ${item.bg} ${item.color} flex items-center justify-center mb-4`}>
+                                        <item.icon className="w-6 h-6" />
+                                    </div>
+                                    <CardTitle className="text-lg">{item.title}</CardTitle>
+                                    <span className={`text-sm font-semibold ${item.color}`}>{item.award}</span>
+                                </CardHeader>
+                                <CardContent>
+                                    <p className="text-sm text-muted-foreground leading-relaxed">
+                                        {item.description}
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        </motion.div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
 }

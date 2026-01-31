@@ -1,317 +1,94 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { Mail, ArrowRight, Github, Linkedin, Twitter } from "lucide-react";
 import { Button } from "./ui/button";
-import { Mail, Phone, MapPin, Github, Send, Copy, Check, Linkedin, ExternalLink } from "lucide-react";
-
-const contactMethods = [
-  {
-    icon: Mail,
-    label: "Email",
-    value: "neerajpundir2005@gmail.com",
-    href: "mailto:neerajpundir2005@gmail.com",
-    gradient: "from-yellow-500 to-orange-500",
-    copyable: true,
-  },
-  {
-    icon: Phone,
-    label: "Phone",
-    value: "+91 8279386280",
-    href: "tel:+918279386280",
-    gradient: "from-green-500 to-emerald-500",
-    copyable: true,
-  },
-  {
-    icon: MapPin,
-    label: "Location",
-    value: "Chandigarh, India",
-    href: "#",
-    gradient: "from-orange-500 to-green-500",
-    copyable: false,
-  },
-  {
-    icon: Github,
-    label: "GitHub",
-    value: "harshitpundir7",
-    href: "https://github.com/harshitpundir7",
-    gradient: "from-orange-500 to-red-500",
-    copyable: false,
-  },
-];
-
-const socialLinks = [
-  {
-    icon: Github,
-    label: "GitHub",
-    href: "https://github.com/harshitpundir7",
-    gradient: "from-gray-800 to-gray-900",
-  },
-  {
-    icon: Linkedin,
-    label: "LinkedIn",
-    href: "#",
-    gradient: "from-yellow-600 to-orange-600",
-  },
-];
+import { Card, CardContent } from "./ui/card";
 
 export default function Contact() {
-  const [copied, setCopied] = useState<string | null>(null);
+    return (
+        <section id="contact" className="py-24">
+            <div className="container mx-auto px-4 max-w-4xl">
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    className="grid gap-8 items-center"
+                >
+                    {/* Main Call to Action Card */}
+                    <Card className="bg-card text-card-foreground border-border overflow-hidden relative shadow-sm">
+                        {/* Subtle Gradient Glow - Theme Aware */}
+                        <div className="absolute top-0 right-0 p-32 bg-primary/5 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2" />
+                        <div className="absolute bottom-0 left-0 p-32 bg-secondary/5 blur-3xl rounded-full -translate-x-1/2 translate-y-1/2" />
 
-  const handleCopy = async (text: string, id: string) => {
-    try {
-      await navigator.clipboard.writeText(text);
-      setCopied(id);
-      setTimeout(() => setCopied(null), 2000);
-    } catch (err) {
-      console.error("Failed to copy:", err);
-    }
-  };
+                        <CardContent className="p-10 md:p-12 text-center relative z-10 flex flex-col items-center">
+                            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-foreground">
+                                Let&apos;s build something <br />
+                                <span className="text-muted-foreground">extraordinary.</span>
+                            </h2>
+                            <p className="text-lg text-muted-foreground max-w-lg mx-auto mb-8 leading-relaxed">
+                                Whether you have a project in mind or just want to chat about AI agents,
+                                I&apos;m always open to new opportunities.
+                            </p>
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
+                            <div className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center">
+                                <a href="mailto:neerajpundir2005@gmail.com">
+                                    <Button size="lg" className="h-12 px-8 text-base">
+                                        <Mail className="w-4 h-4 mr-2" />
+                                        Get in Touch
+                                    </Button>
+                                </a>
+                            </div>
+                        </CardContent>
+                    </Card>
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-
-  const floatingVariants = {
-    animate: {
-      y: [0, -15, 0],
-      transition: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut",
-      },
-    },
-  };
-
-  return (
-    <section id="contact" className="py-24 relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <motion.div
-          className="absolute top-20 left-10 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl"
-          animate={{
-            x: [0, 50, 0],
-            y: [0, 30, 0],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-orange-500/10 rounded-full blur-3xl"
-          animate={{
-            x: [0, -40, 0],
-            y: [0, -50, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      </div>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <motion.div
-            variants={floatingVariants}
-            animate="animate"
-            className="inline-block mb-4"
-          >
-            <Send className="w-12 h-12 text-primary mx-auto" />
-          </motion.div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Get In <span className="bg-gradient-to-r from-primary to-orange-400 bg-clip-text text-transparent">Touch</span>
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
-            I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
-            <br />
-            Let&apos;s build something amazing together!
-          </p>
-        </motion.div>
-
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 mb-12"
-        >
-          {contactMethods.map((method, index) => {
-            const Icon = method.icon;
-            const isCopied = copied === method.label;
-            return (
-              <motion.div key={index} variants={itemVariants}>
-                <Card className="h-full border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 group overflow-hidden relative">
-                  {/* Animated gradient overlay */}
-                  <div className={`absolute inset-0 bg-gradient-to-r ${method.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 blur-xl`} />
-                  
-                  <div className={`h-1 bg-gradient-to-r ${method.gradient}`} />
-                  
-                  <CardHeader className="relative">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <motion.div
-                          className={`p-3 rounded-xl bg-gradient-to-br ${method.gradient} shadow-lg`}
-                          whileHover={{ scale: 1.1, rotate: [0, -5, 5, -5, 0] }}
-                          transition={{ duration: 0.5 }}
+                    {/* Connect Links Grid - Neo Bento Style */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <a
+                            href="https://github.com/harshitpundir7"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block"
                         >
-                          <Icon className="w-5 h-5 text-white" />
-                        </motion.div>
-                        <CardTitle className="text-lg group-hover:text-primary transition-colors">
-                          {method.label}
-                        </CardTitle>
-                      </div>
-                      {method.copyable && (
-                        <motion.button
-                          onClick={() => handleCopy(method.value, method.label)}
-                          className="p-2 rounded-lg hover:bg-muted/50 transition-colors"
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.95 }}
-                          title="Copy to clipboard"
+                            <div className="p-6 rounded-xl border border-border bg-card hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors flex flex-col items-center gap-3 group">
+                                <div className="p-3 rounded-full bg-zinc-100 dark:bg-zinc-800 text-foreground group-hover:scale-110 transition-transform">
+                                    <Github className="w-5 h-5" />
+                                </div>
+                                <span className="font-medium text-muted-foreground group-hover:text-foreground">GitHub</span>
+                            </div>
+                        </a>
+
+                        <a
+                            href="https://www.linkedin.com/in/harshit-pundir-b19204295/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block"
                         >
-                          {isCopied ? (
-                            <Check className="w-4 h-4 text-green-500" />
-                          ) : (
-                            <Copy className="w-4 h-4 text-muted-foreground" />
-                          )}
-                        </motion.button>
-                      )}
+                            <div className="p-6 rounded-xl border border-border bg-card hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors flex flex-col items-center gap-3 group">
+                                <div className="p-3 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform">
+                                    <Linkedin className="w-5 h-5" />
+                                </div>
+                                <span className="font-medium text-muted-foreground group-hover:text-foreground">LinkedIn</span>
+                            </div>
+                        </a>
+
+                        <a
+                            href="https://twitter.com/harshitpundir07"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block"
+                        >
+                            <div className="p-6 rounded-xl border border-border bg-card hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors flex flex-col items-center gap-3 group">
+                                <div className="p-3 rounded-full bg-sky-100 dark:bg-sky-900/30 text-sky-600 dark:text-sky-400 group-hover:scale-110 transition-transform">
+                                    <Twitter className="w-5 h-5" />
+                                </div>
+                                <span className="font-medium text-muted-foreground group-hover:text-foreground">Twitter</span>
+                            </div>
+                        </a>
                     </div>
-                  </CardHeader>
-                  
-                  <CardContent className="relative">
-                    <a
-                      href={method.href}
-                      target={method.href.startsWith("http") ? "_blank" : undefined}
-                      rel={method.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group/link"
-                    >
-                      <span className="truncate">{method.value}</span>
-                      {method.href.startsWith("http") && (
-                        <ExternalLink className="w-4 h-4 opacity-0 group-hover/link:opacity-100 group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-all flex-shrink-0" />
-                      )}
-                    </a>
-                  </CardContent>
 
-                  {/* Floating particles */}
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <motion.div
-                      className={`w-2 h-2 rounded-full bg-gradient-to-r ${method.gradient}`}
-                      animate={{
-                        y: [0, -10, 0],
-                        opacity: [0.5, 1, 0.5],
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        delay: index * 0.3,
-                      }}
-                    />
-                  </div>
-                </Card>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-
-        {/* Social Links Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="max-w-5xl mx-auto mb-12"
-        >
-          <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle className="text-xl text-center">Connect on Social Media</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap justify-center gap-4">
-                {socialLinks.map((social, index) => {
-                  const Icon = social.icon;
-                  return (
-                    <motion.a
-                      key={index}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05, y: -5 }}
-                      whileTap={{ scale: 0.95 }}
-                      className={`p-4 rounded-xl bg-gradient-to-br ${social.gradient} text-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-3 group`}
-                    >
-                      <Icon className="w-5 h-5" />
-                      <span className="font-medium">{social.label}</span>
-                      <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
-                    </motion.a>
-                  );
-                })}
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
-
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center"
-        >
-          <Card className="max-w-2xl mx-auto border-border/50 bg-card/50 backdrop-blur-sm overflow-hidden relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/10 via-orange-500/10 to-green-500/10 opacity-0 hover:opacity-100 transition-opacity duration-500" />
-            <div className="h-1 bg-gradient-to-r from-yellow-500 via-orange-500 to-green-500" />
-            <CardContent className="pt-8 pb-8 relative">
-              <h3 className="text-2xl font-bold mb-3">
-                Ready to Start a Project?
-              </h3>
-              <p className="text-muted-foreground mb-6">
-                Let&apos;s discuss how we can work together to bring your ideas to life.
-              </p>
-              <a href="mailto:neerajpundir2005@gmail.com">
-                <Button size="lg" className="group">
-                  <span className="flex items-center gap-2">
-                    <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    Send Me an Email
-                  </span>
-                </Button>
-              </a>
-            </CardContent>
-          </Card>
-        </motion.div>
-      </div>
-    </section>
-  );
+                </motion.div>
+            </div>
+        </section>
+    );
 }
