@@ -4,18 +4,20 @@ import { motion } from "framer-motion";
 
 const experience = [
   {
-    company: "Garudashak (Start Up) — IIT Mandi",
-    role: "Full Stack Intern",
-    period: "Mar 2025 – June 2025",
-    description: "Developed a cross-platform Electron-based desktop application to visualize real-time drone detection stats. Built a FastAPI backend with WebSocket support to stream logs and alerts from ML models to the dashboard in real-time.",
-    current: false, // Future date in resume, treating as recent/upcoming project
+    company: "School ERP  — School Management System ",
+    role: "Full Stack Developer",
+    period: "Oct 2025 – Nov 2025",
+    description:
+      "Developed a comprehensive School ERP system including timetable automation with conflict resolution and teacher assignment logic. Built a library management module with ISBN scanning, book cataloging, and Razorpay-based fine payment integration.",
+    current: false,
   },
   {
-    company: "Freelance",
+    company: "Agriculture App - Agricultural Marketplace Mobile Application",
     role: "Full Stack Developer",
-    period: "July 2024 – Present",
-    description: "Delivered end-to-end full stack solutions for multiple clients across fintech, e-commerce, and SaaS domains. Deployed production-ready apps with Docker, Nginx, and CI/CD pipelines on AWS, Vercel, and Render.",
-    current: true,
+    period: "Sept 2025 – Oct 2025",
+    description:
+      "Built an agricultural marketplace mobile application enabling farmers to hire workers and rent equipment. Integrated Twilio API for phone verification and implemented equipment rental workflows with Cloudinary-based image uploads and role-based user profiles.",
+    current: false,
   },
 ];
 

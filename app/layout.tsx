@@ -7,6 +7,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Harshit Pundir - Full Stack Developer",
   description: "Portfolio of Harshit Pundir - Full Stack Developer & AI Enthusiast",
+  icons: {
+    icon: "/myphoto.jpg",
+  },
 };
 
 import { ThemeProvider } from "@/components/theme-provider";

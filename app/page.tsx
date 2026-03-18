@@ -4,7 +4,6 @@ import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Education from "@/components/Education";
-import Achievements from "@/components/Achievements";
 import GithubStats from "@/components/GithubStats";
 import Contact from "@/components/Contact"; // Assuming Contact exists, if not using Footer
 import Footer from "@/components/Footer";
@@ -25,7 +24,6 @@ export default function Home() {
         <Experience />
         <Projects />
         <Education />
-        <Achievements />
         <Contact />
         <Footer />
       </div>
