@@ -51,12 +51,12 @@ const projects = [
     year: "2026",
   },
   {
-    title: "Homy - AI Room Interior Designer",
+    title: "Uptime Monitor - Service Health Dashboard",
     description:
-      "Cross-platform mobile app with AI-powered room design generation, style transfer, and e-commerce integration with Stripe payments.",
-    tech: ["Next.js", "React Native", "MongoDB", "Stripe", "Cloudinary"],
-    github: "https://github.com/harshitpundir7",
-    live: "#",
+      "Full-stack infrastructure monitoring platform featuring automated background health checks, real-time incident tracking, customizable public status pages, and instant email alerting.",
+    tech: ["Next.js", "Tailwind CSS", "PostgreSQL", "Prisma", "NextAuth", "TypeScript"],
+    github: "https://github.com/harshitpundir7/uptime-monitor",
+    live: "https://uptime-monitor.harshitpundir.tech/",
     year: "2025",
   },
   {
@@ -74,7 +74,7 @@ export default function Projects() {
   return (
     <section id="projects" className="py-24">
       <div className="container mx-auto px-4">
-        
+
         {/* Header */}
         <div className="flex items-center justify-between mb-12">
           <div className="space-y-1">

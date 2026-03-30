@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, MapPin, Sparkles } from "lucide-react";
+import { ArrowDown, ArrowRight, MapPin, Sparkles } from "lucide-react";
 import Image from "next/image";
 import SocialGrid from "./SocialGrid";
 import { Button } from "./ui/button";
@@ -88,11 +88,8 @@ export default function Hero() {
           {/* CTA Buttons */}
           <motion.div variants={itemVariants} className="flex flex-wrap gap-4 pt-4">
             <Button size="lg" className="rounded-full px-8">
-              View Projects
-            </Button>
-            <Button variant="outline" size="lg" className="rounded-full px-8 group">
-              Contact Me
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              Scroll
+              <ArrowDown className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
           </motion.div>
 
